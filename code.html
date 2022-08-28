@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project by Onyeka Morka</title>
+    <title>Contrary: A Coding Project by Onyeka Morka</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,7 +23,7 @@
     <!-- NAV SECTION -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/index.html"><img src="img/Icon.svg" class="d-inline-block align-text-top" width="30" height="24">APP NAME</a>
+            <a class="navbar-brand" href="/index.html"><img src="img/Icon.svg" class="d-inline-block align-text-top" width="30" height="24">Contrary</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -40,7 +40,7 @@
                         <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                        <a class="nav-link" target="_blank" href="https://github.com/omorka/Contrary">Git Repo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="https://omorka.netlify.app/">About Me</a>
@@ -52,25 +52,73 @@
     <!-- MAIN SECTION -->
     <main class="flex-shrink-0">
         <div class="container py-4 px-5 mt-5">
-            <h2 class="border-1 border-bottom border-dark">The Code</h2>
+            <h2 class="border-1 border-bottom border-dark">The Code for Contrary</h2>
             <div class="row row-cols-1 row-cols-md-2">
-                <div class="col-md-8">
+                <div class="col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            //Call Hello World
-                            function helloWorld()
+                            //Get the string from the user
+                            function getString()
                             {
-                                alert("Hello World!");
+                                document.getElementById("alert").classList.add("invisible");
+                            
+                                let userString = document.getElementById("userString").value;
+                                let revString = reverseString(userString);
+                                displayString(revString);
                             }
                         </code>
                     </pre>
                 </div>
-                <div class="col-md-4">
-                    <p>The Code is structured in one function.</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that displays an alert with a message of "Hello World".</p>
+                <div class="col-lg-4">
+                    <h5>GetString() Method</h5>
+                    <p>The <strong>getString()</strong> method gets the string the user inputs from the HTML and stores it in a javascript value that will be used to reverse the string. It also adds the <strong>invisible</strong> class to the <strong>alert</strong> element to hide the alert box each time the user uses the app.</p>
                 </div>
             </div>
+            <div class="row row-cols-1 row-cols-lg-2">
+                <div class="col-lg-8">
+                    <pre class="line-numbers">
+                        <code class="language-javascript">
+                            function reverseString(userString)
+                            {
+                                let revString = [];
+                            
+                                //reverse a string
+                                for(let i = userString.length - 1; i >= 0; i--)
+                                {
+                                    revString += userString[i];
+                                }
+                            
+                                return revString;
+                            }
+                        </code>
+                    </pre>
+                </div>
+                <div class="col-lg-4">
+                    <h5>ReverseString() Method</h5>
+                    <p>The <strong>reverseString()</strong> method has 1 parameter called <strong>userString</strong> and iterates from the end of the array to the beginning and adds the characters to the <strong>revString</strong> string array that then gets returned back to the control function to later be displayed.</p>
+                </div>
+            </div>
+            <div class="row row-cols-1 row-cols-lg-2">
+                <div class="col-lg-8">
+                    <pre class="line-numbers">
+                        <code class="language-javascript">
+                            //Display the reversed string to the user
+                            function displayString(revString)
+                            {
+                                //write to the page
+                                document.getElementById("msg").innerHTML = `Your string is: ${revString}`;
+
+                                //show alert box
+                                document.getElementById("alert").classList.remove("invisible");
+                            }
+                        </code>
+                    </pre>
+                </div>
+                <div class="col-lg-4">
+                    <h5>DisplayString() Method</h5>
+                    <p>The <strong>displayString()</strong> method takes in the string 
+                    from the <strong>reverseString</strong> method and writes it to the HTML document. It also removes the <strong>invisible</strong> class from the <strong>alert</strong> element so that it is shown to the user.</p>
+                </div>
         </div>
     </main>
     <!-- FOOTER SECTION -->
